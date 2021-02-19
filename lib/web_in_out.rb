@@ -6,6 +6,7 @@ class Web_in_out
   end
 
   def print(to_print)
+    to_print
   end
 
   def get_play_against_computer

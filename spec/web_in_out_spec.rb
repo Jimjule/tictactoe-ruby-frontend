@@ -7,6 +7,11 @@ describe Web_in_out do
     expect(web_in_out).to respond_to(:print).with(1).arguments
   end
 
+  it 'Print method returns parameter' do
+    test_string = 'Testing, testing, 1 2, 1 2.'
+    expect(web_in_out.print(test_string)).to be(test_string)
+  end
+
   it 'Has a get play against computer method' do
     expect(web_in_out).to respond_to(:get_play_against_computer)
   end

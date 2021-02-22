@@ -1,0 +1,25 @@
+{
+  "name": "tictactoe-ruby-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for Ruby Tictactoe Gem",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jimjule/tictactoe-ruby-frontend.git"
+  },
+  "author": "Jules Roadknight",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jimjule/tictactoe-ruby-frontend/issues"
+  },
+  "homepage": "https://github.com/Jimjule/tictactoe-ruby-frontend#readme",
+  "devDependencies": {
+    "cypress": "^6.5.0"
+  }
+}

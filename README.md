@@ -2,8 +2,13 @@
 A Sinatra frontend for using my custom tic-tac-toe Gem online.
 
 # Installation
-Clone this repository to your target folder.
+- Clone this repository to your target folder
+- `npm install`
 
 # Running
 In the console, run `shotgun config.ru -p 4567`
 Navigate to http://localhost:4567
+
+# Testing
+- Cypress: `npx cypress open`
+- RSpec: `rspec`

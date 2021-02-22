@@ -4,5 +4,32 @@
     <h1 data-testid='setup_greeting'>
       <%= 'Let\'s set up the game.' %>
     </h1>
+    <form>
+      <label>
+        P1 Name
+      </label>
+      <input type='text' data-testid='player_1_name' />
+      <br/>
+
+      <label>
+        Play the Computer?
+      </label>
+      <input
+        type='checkbox'
+        data-testid='player_2_is_computer'
+        onClick="document.getElementById('player_2_name').disabled=!this.checked" />
+      <br/>
+
+      <label>
+        P2 Name
+      </label>
+      <input type='text' id='player_2_name' data-testid='player_2_name' disabled=true />
+      <br/>
+
+      <label>
+        Board Size
+      </label>
+      <input type='text' data-testid='board_size' value=3 />
+    </form>
   </body>
 </html>

@@ -15,7 +15,7 @@ describe('Starting a game', () => {
       .type('X')
 
     cy.get('[data-testid="setup_greeting"]')
-    .should('be.visible')
+      .should('be.visible')
 
     cy.get('[data-testid="player_2_name"]')
       .should('be.disabled')
@@ -27,16 +27,33 @@ describe('Starting a game', () => {
       .should('be.checked')
 
     cy.get('[data-testid="player_2_name"]')
-      .should('not.be.disabled')
+      .should('be.disabled')
+
+    cy.get('[type="checkbox"]')
+      .uncheck()
+
+    cy.get('[data-testid="player_2_is_computer"]')
+      .should('not.be.checked')
+
+    cy.get('[data-testid="player_2_name"]')
+      .type('O')
 
     cy.get('[data-testid="board_size"]')
       .should('have.value', '3')
 
-    cy.get('[data-testid="board_size"]')
-      .clear()
-      .type(4)
+    cy.get('[type="submit"]')
+      .should('not.be.disabled')
 
-    cy.get('[data-testid="board_size"]')
-      .should('have.value', '4')
+    cy.get('[type="submit"]')
+      .click()
+
+    cy.url()
+      .should('include', 'X')
+
+    cy.url()
+      .should('include', '3')
+
+    cy.url()
+      .should('include', 'O')
   })
 })

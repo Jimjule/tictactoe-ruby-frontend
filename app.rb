@@ -7,6 +7,12 @@ get '/' do
   erb :index
 end
 
-post '/game_setup' do
+get '/game_setup' do
   erb :game_setup
+end
+
+get '/game_ready' do
+  @params = params
+  @player_1_name = params['player_1_name']
+  "Hello #{params['player_1_name']}"
 end

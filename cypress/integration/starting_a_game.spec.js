@@ -91,7 +91,32 @@ describe('Starting a game', () => {
       .should('have.value', 'Computer')
   })
 
-  it('Submits game setup values', () => {
+  it('Submits game setup values with a computer player', () => {
+    cy.visit('http://localhost:4567')
+
+    cy.get('[data-testid="game_setup"]')
+      .click();
+
+    cy.get('[data-testid="player_1_name"]')
+      .type('X')
+
+    cy.get('[type="submit"]')
+      .click()
+
+    cy.url()
+      .should('include', 'player_1_name=X')
+
+    cy.url()
+      .should('include', 'board_size=3')
+
+    cy.url()
+      .should('not.include', 'player_2_name=Computer')
+
+    cy.url()
+      .should('include', 'computer=checked')
+  })
+
+  it('Submits game setup values without a computer player', () => {
     cy.visit('http://localhost:4567')
 
     cy.get('[data-testid="game_setup"]')
@@ -110,18 +135,18 @@ describe('Starting a game', () => {
       .type('O')
 
     cy.get('[type="submit"]')
-      .should('not.be.disabled')
-
-    cy.get('[type="submit"]')
       .click()
 
     cy.url()
-      .should('include', 'X')
+      .should('include', 'player_1_name=X')
 
     cy.url()
-      .should('include', '3')
+      .should('include', 'board_size=3')
 
     cy.url()
-      .should('include', 'O')
+      .should('include', 'player_2_name=O')
+
+    cy.url()
+      .should('not.include', 'computer=checked')
   })
 })

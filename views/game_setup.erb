@@ -8,7 +8,7 @@
       <label>
         P1 Name
       </label>
-      <input type='text' name='player_1_name' value='' data-testid='player_1_name' />
+      <input type='text' name='player_1_name' value='' data-testid='player_1_name' required />
       <br/>
 
       <label>
@@ -17,21 +17,24 @@
       <input
         type='checkbox'
         name='computer'
-        value=false
+        checked='checked'
+        value={% checked == 'checked' %}
         data-testid='player_2_is_computer'
-        onClick="document.getElementById('player_2_name').disabled=this.checked" />
+        onClick=
+          "document.getElementById('player_2_name').disabled=this.checked;
+          document.getElementById('player_2_name').value='Computer'" />
       <br/>
 
       <label>
         P2 Name
       </label>
-      <input type='text' id='player_2_name' name='player_2_name' data-testid='player_2_name' value='' disabled=true />
+      <input type='text' id='player_2_name' name='player_2_name' data-testid='player_2_name' value='Computer' disabled=true required />
       <br/>
 
       <label>
         Board Size
       </label>
-      <input type='text' name='board_size' data-testid='board_size' value=3 />
+      <input type='text' name='board_size' data-testid='board_size' value=3 required />
       <br/>
 
       <input type='submit' value='Submit' />

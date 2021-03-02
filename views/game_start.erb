@@ -4,7 +4,7 @@
     <h1 data-testid='ready_greeting'>
       Enjoy the game.
     </h1>
-    
+
     <h1 data-testid='turn_counter'>
       Turn Count: <%= @tictactoe_jules.turn_count %>
     </h1>
@@ -17,9 +17,15 @@
       Board Size: <%= @tictactoe_jules.board.board_size %>
     </h2>
 
-    <h2 data-testid='board'>
-      <%= @tictactoe_jules.board.get_board_values %>
-    </h2>
+    <div data-testid='board_display'>
+      <% for row in @tictactoe_jules.board.get_board_values do %>
+        <h3>
+        <% for digit in row do %>
+          <%= digit %>
+        <% end %>
+        </h3>
+      <% end %>
+    </div>
 
     <form action='/game_start/player_move' method='POST'>
       <label data-testid='whose_move'>

@@ -98,13 +98,13 @@ describe('Setting up a game', () => {
       .click()
 
     cy.get('[data-testid="player_1_name"]')
-      .type('X')
+      .type('Player 1')
 
     cy.get('[type="submit"]')
       .click()
 
     cy.get('[data-testid="players"]')
-      .should('contain', 'X vs Computer')
+      .should('contain', 'Player 1 vs Computer')
 
     cy.get('[data-testid="board_size"]')
       .should('contain', 'Board Size: 3')

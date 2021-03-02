@@ -1,9 +1,9 @@
-describe('Starting a game', () => {
+describe('Setting up a game', () => {
   it('Cannot submit form without required fields', () => {
     cy.visit('http://localhost:4567')
 
     cy.get('[data-testid="game_setup"]')
-      .click();
+      .click()
 
     cy.url()
       .should('include', '/game_setup')
@@ -95,7 +95,7 @@ describe('Starting a game', () => {
     cy.visit('http://localhost:4567')
 
     cy.get('[data-testid="game_setup"]')
-      .click();
+      .click()
 
     cy.get('[data-testid="player_1_name"]')
       .type('X')
@@ -103,24 +103,18 @@ describe('Starting a game', () => {
     cy.get('[type="submit"]')
       .click()
 
-    cy.url()
-      .should('include', 'player_1_name=X')
+    cy.get('[data-testid="players"]')
+      .should('contain', 'X vs Computer')
 
-    cy.url()
-      .should('include', 'board_size=3')
-
-    cy.url()
-      .should('not.include', 'player_2_name=Computer')
-
-    cy.url()
-      .should('include', 'computer=checked')
+    cy.get('[data-testid="board_size"]')
+      .should('contain', 'Board Size: 3')
   })
 
   it('Submits game setup values without a computer player', () => {
     cy.visit('http://localhost:4567')
 
     cy.get('[data-testid="game_setup"]')
-      .click();
+      .click()
 
     cy.get('[data-testid="player_1_name"]')
       .type('X')
@@ -137,16 +131,10 @@ describe('Starting a game', () => {
     cy.get('[type="submit"]')
       .click()
 
-    cy.url()
-      .should('include', 'player_1_name=X')
+    cy.get('[data-testid="players"]')
+      .should('contain', 'X vs O')
 
-    cy.url()
-      .should('include', 'board_size=3')
-
-    cy.url()
-      .should('include', 'player_2_name=O')
-
-    cy.url()
-      .should('not.include', 'computer=checked')
+    cy.get('[data-testid="board_size"]')
+      .should('contain', 'Board Size: 3')
   })
 })

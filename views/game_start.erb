@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1 data-testid='ready_greeting'>
+      Enjoy the game.
+    </h1>
+    
+    <h1 data-testid='turn_counter'>
+      Turn Count: <%= @tictactoe_jules.turn_count %>
+    </h1>
+
+    <h1 data-testid='players'>
+      <%= session['tictactoe_jules'].player_x.id %> vs <%= session['tictactoe_jules'].player_o.id %>
+    </h1>
+
+    <h2 data-testid='board_size'>
+      Board Size: <%= @tictactoe_jules.board.board_size %>
+    </h2>
+
+    <h2 data-testid='board'>
+      <%= @tictactoe_jules.board.get_board_values %>
+    </h2>
+
+    <form action='/game_start/player_move' method='POST'>
+      <label data-testid='whose_move'>
+        <%= @tictactoe_jules.current_player.id %>'s Move
+      </label>
+      <input type='text' name='player_move' value='' data-testid='enter_move' required />
+      <br/>
+      <input type='submit' data-testid='submit_move' value='Submit' />
+    </form>
+  </body>
+</html>

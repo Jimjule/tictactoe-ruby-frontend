@@ -56,6 +56,9 @@ Cypress.Commands.add('setupGameWithPlayer', (playerOneName, playerTwoName, board
     .uncheck()
 
   cy.get('[data-testid="player_2_name"]')
+    .clear()
+
+  cy.get('[data-testid="player_2_name"]')
     .type(playerTwoName)
 
   cy.get('[data-testid="set_board_size"]')

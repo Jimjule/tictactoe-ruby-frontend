@@ -34,7 +34,14 @@
       <label>
         Board Size
       </label>
-      <input type='text' name='board_size' data-testid='board_size' value=3 required />
+      <input
+        type='number'
+        name='board_size'
+        data-testid='set_board_size'
+        min=3
+        max=10
+        value=3
+        required />
       <br/>
 
       <input type='submit' value='Submit' />

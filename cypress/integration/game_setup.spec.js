@@ -17,7 +17,7 @@ describe('Setting up a game', () => {
     cy.get('[data-testid="player_2_is_computer"]')
       .should('be.checked')
 
-    cy.get('[data-testid="board_size"]')
+    cy.get('[data-testid="set_board_size"]')
       .should('have.value', '3')
 
     cy.get('[type="submit"]')
@@ -29,7 +29,7 @@ describe('Setting up a game', () => {
     cy.get('[data-testid="player_1_name"]')
       .type('X')
 
-    cy.get('[data-testid="board_size"]')
+    cy.get('[data-testid="set_board_size"]')
       .clear()
 
     cy.get('[type="submit"]')
@@ -38,7 +38,7 @@ describe('Setting up a game', () => {
     cy.url()
       .should('equal', 'http://localhost:4567/game_setup?')
 
-    cy.get('[data-testid="board_size"]')
+    cy.get('[data-testid="set_board_size"]')
       .type('3')
 
     cy.get('[type="checkbox"]')

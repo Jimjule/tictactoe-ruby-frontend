@@ -33,10 +33,10 @@ Cypress.Commands.add('setupGameWithComputer', (playerOneName, boardSize) => {
   cy.get('[data-testid="player_1_name"]')
     .type(playerOneName)
 
-  cy.get('[data-testid="board_size"]')
+  cy.get('[data-testid="set_board_size"]')
     .clear()
 
-  cy.get('[data-testid="board_size"]')
+  cy.get('[data-testid="set_board_size"]')
     .type(boardSize)
 
   cy.get('[type="submit"]')
@@ -58,10 +58,10 @@ Cypress.Commands.add('setupGameWithPlayer', (playerOneName, playerTwoName, board
   cy.get('[data-testid="player_2_name"]')
     .type(playerTwoName)
 
-  cy.get('[data-testid="board_size"]')
+  cy.get('[data-testid="set_board_size"]')
     .clear()
 
-  cy.get('[data-testid="board_size"]')
+  cy.get('[data-testid="set_board_size"]')
     .type(boardSize)
 
   cy.get('[type="submit"]')

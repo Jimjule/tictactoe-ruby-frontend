@@ -108,6 +108,9 @@ describe('Setting up a game', () => {
 
     cy.get('[data-testid="board_size"]')
       .should('contain', 'Board Size: 3')
+
+    cy.get('[data-testid="game_status"]')
+      .should('contain', 'In Progress')
   })
 
   it('Submits game setup values without a computer player', () => {
@@ -136,5 +139,8 @@ describe('Setting up a game', () => {
 
     cy.get('[data-testid="board_size"]')
       .should('contain', 'Board Size: 3')
+
+    cy.get('[data-testid="game_status"]')
+      .should('contain', 'In Progress')
   })
 })

@@ -27,17 +27,18 @@ post '/game_start' do
     Board.new(board_size.to_i)
   )
   session[:tictactoe_jules] = @tictactoe_jules
+  session[:game_status] = 'In Progress'
   erb :game_start
 end
 
 get '/game_start' do
-  @tictactoe_jules = session[:tictactoe_jules]
+  session[:tictactoe_jules]
   erb :game_start
 end
 
 post '/game_start/player_move' do
   player_move = params['player_move']
-  session[:tictactoe_jules].submit_move(player_move)
-  @tictactoe_jules = session[:tictactoe_jules]
+  session[:tictactoe_jules].submit_move(player_move) if session[:tictactoe_jules].board.is_square_free?(player_move.to_i)
+  session[:tictactoe_jules]
   erb :game_start
 end

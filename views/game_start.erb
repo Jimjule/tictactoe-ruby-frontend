@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <h1 data-testid='ready_greeting'>
-      Enjoy the game.
+    <h1 data-testid='game_status'>
+      Game Status: <%= session[:game_status] %>
     </h1>
 
     <h1 data-testid='turn_counter'>
-      Turn Count: <%= @tictactoe_jules.turn_count %>
+      Turn Count: <%= session[:tictactoe_jules].turn_count %>
     </h1>
 
     <h1 data-testid='players'>
@@ -14,11 +14,11 @@
     </h1>
 
     <h2 data-testid='board_size'>
-      Board Size: <%= @tictactoe_jules.board.board_size %>
+      Board Size: <%= session[:tictactoe_jules].board.board_size %>
     </h2>
 
     <div data-testid='board_display'>
-      <% for row in @tictactoe_jules.board.get_board_values do %>
+      <% for row in session[:tictactoe_jules].board.get_board_values do %>
         <h3>
         <% for digit in row do %>
           <%= digit %>
@@ -29,7 +29,7 @@
 
     <form action='/game_start/player_move' method='POST'>
       <label data-testid='whose_move'>
-        <%= @tictactoe_jules.current_player.id %>'s Move
+        <%= session[:tictactoe_jules].current_player.id %>'s Move
       </label>
       <input type='text' name='player_move' value='' data-testid='enter_move' required />
       <br/>

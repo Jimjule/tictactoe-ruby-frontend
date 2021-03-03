@@ -42,3 +42,28 @@ Cypress.Commands.add('setupGameWithComputer', (playerOneName, boardSize) => {
   cy.get('[type="submit"]')
     .click()
 })
+
+Cypress.Commands.add('setupGameWithPlayer', (playerOneName, playerTwoName, boardSize) => {
+  cy.visit('http://localhost:4567')
+
+  cy.get('[data-testid="game_setup"]')
+    .click()
+
+  cy.get('[data-testid="player_1_name"]')
+    .type(playerOneName)
+
+  cy.get('[type="checkbox"]')
+    .uncheck()
+
+  cy.get('[data-testid="player_2_name"]')
+    .type(playerTwoName)
+
+  cy.get('[data-testid="board_size"]')
+    .clear()
+
+  cy.get('[data-testid="board_size"]')
+    .type(boardSize)
+
+  cy.get('[type="submit"]')
+    .click()
+})

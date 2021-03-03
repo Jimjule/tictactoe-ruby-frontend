@@ -27,7 +27,7 @@
       <% end %>
     </div>
 
-    <% if !session[:tictactoe_jules].winner %>
+    <% if !session[:tictactoe_jules].game_is_over %>
       <form action='/game_start/player_move' method='POST'>
         <label data-testid='whose_move'>
           <%= session[:tictactoe_jules].current_player.id %>'s Move

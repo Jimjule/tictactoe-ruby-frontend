@@ -140,4 +140,91 @@ describe('Finish a game', () => {
     cy.get('[data-testid="game_status"]')
       .should('contain', playerTwo + ' is the Winner!')
   })
+
+  it('Declares a draw', () => {
+    cy.setupGameWithPlayer('One', 'Another', 3)
+
+    cy.get('[data-testid="board_display"]')
+      .should('be.visible')
+
+    cy.get('[data-testid="board_display"]')
+      .contains('1 2 3')
+    cy.get('[data-testid="board_display"]')
+      .contains('4 5 6')
+    cy.get('[data-testid="board_display"]')
+      .contains('7 8 9')
+
+    cy.get('[data-testid="enter_move"]')
+      .type('1')
+
+    cy.get('[data-testid="submit_move"]')
+      .click()
+
+    cy.get('[data-testid="enter_move"]')
+      .type('2')
+
+    cy.get('[data-testid="submit_move"]')
+      .click()
+
+    cy.get('[data-testid="enter_move"]')
+      .type('3')
+
+    cy.get('[data-testid="submit_move"]')
+      .click()
+
+    cy.get('[data-testid="enter_move"]')
+      .type('4')
+
+    cy.get('[data-testid="submit_move"]')
+      .click()
+
+    cy.get('[data-testid="enter_move"]')
+      .type('6')
+
+    cy.get('[data-testid="submit_move"]')
+      .click()
+
+    cy.get('[data-testid="enter_move"]')
+      .type('5')
+
+    cy.get('[data-testid="submit_move"]')
+      .click()
+
+    cy.get('[data-testid="enter_move"]')
+      .type('7')
+
+    cy.get('[data-testid="submit_move"]')
+      .click()
+
+    cy.get('[data-testid="enter_move"]')
+      .type('9')
+
+    cy.get('[data-testid="submit_move"]')
+      .click()
+
+    cy.get('[data-testid="enter_move"]')
+      .type('8')
+
+    cy.get('[data-testid="submit_move"]')
+      .click()
+
+    cy.get('[data-testid="board_display"]')
+      .contains('X O X')
+    cy.get('[data-testid="board_display"]')
+      .contains('X X O')
+    cy.get('[data-testid="board_display"]')
+      .contains('O X O')
+
+    cy.get('[data-testid="enter_move"]')
+      .should('not.exist')
+
+    cy.get('[data-testid="submit_move"]')
+      .should('not.exist')
+
+    cy.get('[data-testid="new_game"]')
+      .should('be.visible')
+
+    cy.get('[data-testid="game_status"]')
+      .should('contain', 'Draw!')
+  })
 })

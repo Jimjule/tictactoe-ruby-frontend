@@ -27,13 +27,22 @@
       <% end %>
     </div>
 
-    <form action='/game_start/player_move' method='POST'>
-      <label data-testid='whose_move'>
-        <%= session[:tictactoe_jules].current_player.id %>'s Move
-      </label>
-      <input type='number' min=1 max=<%= session[:max_turns] %> name='player_move' value='' data-testid='enter_move' required />
-      <br/>
-      <input type='submit' data-testid='submit_move' value='Submit' />
-    </form>
+    <% if !session[:tictactoe_jules].winner %>
+      <form action='/game_start/player_move' method='POST'>
+        <label data-testid='whose_move'>
+          <%= session[:tictactoe_jules].current_player.id %>'s Move
+        </label>
+        <input type='number' min=1 max=<%= session[:max_turns] %> name='player_move' value='' data-testid='enter_move' required />
+        <br/>
+        <input type='submit' data-testid='submit_move' value='Submit' />
+      </form>
+    <% else %>
+      <form action='/' method='GET'>
+        <label>
+          New Game
+        </label>
+        <input type='submit' data-testid='new_game' value='Submit' />
+      </form>
+    <% end %>
   </body>
 </html>

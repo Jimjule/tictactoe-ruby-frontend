@@ -39,5 +39,6 @@ end
 post '/game_start/player_move' do
   player_move = params['player_move']
   session[:tictactoe_jules].submit_move(player_move) if session[:tictactoe_jules].board.is_square_free?(player_move.to_i)
+  session[:game_status] = "#{session[:tictactoe_jules].current_player.id} is the Winner!" if session[:tictactoe_jules].winner
   erb :game_start
 end

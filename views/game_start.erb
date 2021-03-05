@@ -13,10 +13,6 @@
       <%= session['tictactoe_jules'].player_x.id %> vs <%= session['tictactoe_jules'].player_o.id %>
     </h1>
 
-    <h2 data-testid='board_size'>
-      Board Size: <%= session[:tictactoe_jules].board.board_size %>
-    </h2>
-
     <div data-testid='board_display'>
       <% for row in session[:tictactoe_jules].board.get_board_values do %>
         <h3>

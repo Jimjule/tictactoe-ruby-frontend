@@ -1,10 +1,12 @@
-require('sinatra')
-require('shotgun')
-require('tictactoe_jules')
+require 'config'
+require 'sinatra'
+require 'shotgun'
+require 'tictactoe_jules'
 
 configure do
   enable :sessions unless test?
-  set :session_secret, "secret words"
+  config = YAML::load_file('./config.yml') 
+  set :session_secret, config['secret']
 end
 
 get '/' do
